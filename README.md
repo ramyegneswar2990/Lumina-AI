@@ -1,52 +1,89 @@
-# Lumina AI: The Enterprise Knowledge Link
+# Lumina AI: Enterprise Knowledge Link 💎
 
-## �️ Project Overview & Problem Statement
-In the modern enterprise, Large Language Models (LLMs) often suffer from **hallucinations** and a lack of access to real-time, private documents. **Lumina AI** is an Advanced Multi-Source RAG (Retrieval-Augmented Generation) system designed to solve this. By grounding AI responses in verified corporate data, Lumina AI ensures every answer is factually accurate, verifiable, and private.
+[![Endee](https://img.shields.io/badge/Vector%20DB-Endee-blue.svg)](https://github.com/EndeeLabs/endee)
+[![Streamlit](https://img.shields.io/badge/Framework-Streamlit-FF4B4B.svg)](https://streamlit.io)
+[![LangChain](https://img.shields.io/badge/Pipeline-LangChain-green.svg)](https://langchain.com)
 
-## 🏗️ System Design & Technical Approach
-Lumina AI follows a modular RAG architecture:
-1.  **Multi-Source Ingestion**:
-    *   **Web URLs**: Advanced noise filtering (removes citations, ads, and navigation boilerplate from sites like Wikipedia).
-    *   **PDFs**: Deep parsing of complex documents.
-    *   **Structured Data**: Direct syncing from CSV databases.
-    *   **REST API / JSON**: Real-time processing of API responses.
-2.  **Processing**: Automatic text chunking using `RecursiveCharacterTextSplitter` (1000 chars) with 200-char context overlap.
-3.  **Embeddings**: Generation of 384-dimensional semantic vectors using `all-MiniLM-L6-v2`.
-4.  **Retrieval**: Deep semantic search (K=15) with context-aware filtering to prioritize informative paragraphs over chapter titles or TOC headers.
-5.  **Synthesis**: Intelligent answer generation using either Local Evidence Synthesis or GPT-4o-mini.
+**Lumina AI** is a state-of-the-art **Retrieval-Augmented Generation (RAG)** platform designed to bridge the gap between static enterprise data and dynamic AI intelligence. It allows organizations to ground LLM responses in their own private, real-time data using the **Endee Vector Database**.
 
-## ⚡ The Power of Endee (Vector Database)
-The core of Lumina AI is the **Endee Vector Database**. We chose Endee for its high-performance semantic retrieval and seamless Docker-based deployment.
+---
 
-*   **Deployment**: Runs as a localized containerized service via Docker for maximum security and performance.
-*   **Integration**: Uses the Endee Python SDK for sub-millisecond similarity search across enterprise knowledge.
-*   **Accuracy**: Utilizes `cosine` similarity to ensure the highest mathematical match between user queries and document meanings.
-*   **Robustness**: Features a fail-safe connection mechanism that ensures Lumina AI remains functional even if the vector server is temporarily unavailable.
+## 🚩 The Problem Statement
+Standard AI models (like GPT-4) suffer from two major flaws in an enterprise setting:
+1. **Knowledge Cutoffs**: They don't know about events that happened yesterday.
+2. **Hallucination**: They confidently make up facts when they don't have access to your private company documents, PDFs, or internal APIs.
 
-## � Setup & Execution Instructions
+**Lumina AI** solves this by implementing a "Trusted Knowledge Layer." Instead of relying on the AI's memory, it searches your specific documents first and uses that evidence to generate 100% factual answers.
 
-### Prerequisites
-- Python 3.10+
-- Docker Desktop
-- OpenAI API Key (Optional, for smart synthesis)
+---
 
-### 1. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+## 🏗️ Technical Approach & System Design
 
-### 2. Start the Vector Engine (Endee)
+Lumina AI uses a modern, modular architecture:
+
+1. **Smart Ingestion Layer**: 
+   - **PDF/CSV**: High-fidelity parsing of business documents.
+   - **Web Scrubbing**: A custom engine that strips out boilerplate (ads, navbars, citations) to ensure only "clean" knowledge is indexed.
+   - **REST/JSON**: Direct integration for live API responses.
+2. **Semantic Text Processing**: Documents are broken into 1000-character chunks with a 200-character context overlap, ensuring no technical detail is lost.
+3. **Vector Core**: High-dimensional embeddings are generated and stored in **Endee**.
+4. **Contextual Retrieval**: A deep-search algorithm (K=15) retrieves the most mathematically relevant paragraphs.
+5. **Intelligent Synthesis**: A dual-brain system that uses **GPT-4o-mini** for summaries, with a robust Local Synthesis fallback.
+
+---
+
+## 🔗 How Endee is Utilized
+Endee is the heart of Lumina AI. We leverage its high-performance vector search to handle sub-millisecond similarity queries.
+
+*   **Custom Indexing**: We initialize an Endee collection with `space_type="cosine"`, optimized for semantic similarity.
+*   **Mathematical Precision**: Every answer is backed by a **Similarity Score** (0.0 to 1.0) calculated directly by the Endee engine.
+*   **Lifecycle Management**: We implemented a **Deep Clear** protocol that allows one-click deletion and re-initialization of the Endee index for fresh data cycles.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+*   **Python 3.10+**
+*   **Docker Desktop** (to run the Endee Server)
+
+### 2. Infrastructure Setup
+Run the Endee Vector Server using Docker:
 ```bash
 docker-compose up -d
 ```
 
-### 3. Launch Lumina AI
+### 3. Application Installation
+```bash
+# Clone the repository
+git clone https://github.com/ramyegneswar2990/Lumina-AI.git
+cd Lumina-AI
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 4. Run Lumina AI
 ```bash
 streamlit run app.py
 ```
 
-### 4. Direct Access
-Open your browser and navigate to `http://localhost:8501`.
+---
+
+## 🛠️ Feature Deep Dive
+*   💎 **Lumina UI**: A premium dark-mode interface designed for power users.
+*   🧹 **Noise Filtering**: Automatically skips Wikipedia references and chapter titles to find the "meat" of the text.
+*   🔄 **Live Status**: Real-time heartbeat monitor for the Endee connection.
+*   📊 **Evidence Box**: Expand any answer to see the exact paragraph on which the AI based its response.
 
 ---
-*Developed as a production-ready demonstration of Enterprise RAG architecture leveraging the Endee Vector Engine.*
+
+## 📂 Project Structure
+*   `app.py`: The UI and RAG orchestration engine.
+*   `src/vector_store.py`: The Endee client wrapper and fallback logic.
+*   `src/ingestion.py`: Advanced data loading and noise-filtering logic.
+*   `docker-compose.yml`: Infrastructure-as-code for the Endee Vector Server.
+
+---
+
+Developed with ❤️ using **Endee Link Vector Database** for Enterprise Intelligence.
