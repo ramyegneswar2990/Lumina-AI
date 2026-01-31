@@ -93,6 +93,9 @@ Lumina AI supports ingestion from:
 *   Built-in tools for clearing and re-indexing data.
 
 ---
+## 🔗 DashBoarad & output<img width="1831" height="761" alt="image" src="https://github.com/user-attachments/assets/0320526f-844a-4072-95ea-f5869ef8f3d7" />
+<img width="1831" height="761" alt="image" src="https://github.com/user-attachments/assets/d20f7c76-7464-4963-9981-782111c844a9" />
+:
 
 ## 🔗 Role of Endee Vector Database
 Endee serves as the **core semantic memory layer** of Lumina AI. It is utilized for:
