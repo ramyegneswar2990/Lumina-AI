@@ -93,8 +93,10 @@ Lumina AI supports ingestion from:
 *   Built-in tools for clearing and re-indexing data.
 
 ---
-## 🔗 DashBoarad & output<img width="1831" height="761" alt="image" src="https://github.com/user-attachments/assets/0320526f-844a-4072-95ea-f5869ef8f3d7" />
+## 🔗 DashBoarad & output:
 <img width="1831" height="761" alt="image" src="https://github.com/user-attachments/assets/d20f7c76-7464-4963-9981-782111c844a9" />
+<img width="1345" height="578" alt="image" src="https://github.com/user-attachments/assets/f30815e1-5928-4738-b277-0444b06f5a5c" />
+
 :
 
 ## 🔗 Role of Endee Vector Database
