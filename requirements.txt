@@ -1,0 +1,11 @@
+langchain
+langchain-community
+sentence-transformers
+pypdf
+streamlit
+endee
+httpx
+numpy
+requests
+beautifulsoup4
+openai
