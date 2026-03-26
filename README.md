@@ -12,12 +12,15 @@ Instead of relying on a language model’s internal knowledge, Lumina AI retriev
 
 ---
 
+
 ## 🚩 Problem Statement
 Large language models are powerful but face important limitations in enterprise environments. They cannot access private or up-to-date organizational data and may generate incorrect or unsupported answers when information is missing. 
 
 These limitations make standalone LLMs unsuitable for applications involving internal documents, APIs, or proprietary knowledge. **Lumina AI** addresses this challenge by retrieving relevant enterprise data from the **Endee Vector Database** and grounding all responses in retrieved evidence, enabling more reliable and explainable AI-driven knowledge access.
 
 ---
+Live Link: https://lumina-ai231.streamlit.app/
+
 
 ## 🎯 Key Objectives
 *   **Enable semantic search** and question answering over private enterprise data.
